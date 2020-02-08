@@ -77,7 +77,7 @@ export default {
             this.$router.push({ path: "/home" });
           })
           .catch(err => {
-            console.error(err);
+            this.$message.error(err);
           });
       });
     }

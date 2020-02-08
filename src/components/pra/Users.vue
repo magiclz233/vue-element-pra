@@ -137,14 +137,13 @@ export default {
           params: this.queryInfo
         })
         .then(res => {
-          console.log(res.data.data.users);
           if (res.data.meta.status !== 200)
             return this.$message.error(res.data.meta.msg);
           this.userList = res.data.data.users;
           this.total = res.data.data.total;
         })
         .catch(err => {
-          console.error(err);
+          this.$message.error(err);
         });
     },
     // 每页显示个数

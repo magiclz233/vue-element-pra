@@ -78,7 +78,6 @@ export default {
       this.$axios
         .get("menus")
         .then(res => {
-          // console.log(res.data.data);
           if (res.data.meta.status !== 200)
             return this.$message.error(res.data.meta.msg);
           this.menuList = res.data.data;
@@ -86,7 +85,7 @@ export default {
         })
                        
         .catch(err => {
-          console.error(err);
+          this.$message.error(err);
         });
     },
     // 折叠菜单
