@@ -72,7 +72,7 @@ export default {
               return this.$message.error("登陆失败!");
             }
             this.$message.success("登陆成功!");
-            console.log(res.data.data.token);
+            // console.log(res.data.data.token);
             window.sessionStorage.setItem("token", res.data.data.token);
             this.$router.push({ path: "/home" });
           })
