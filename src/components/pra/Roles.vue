@@ -1,6 +1,6 @@
 <template>
   <div>
-    权限页面
+    角色列表
   </div>
 </template>
 

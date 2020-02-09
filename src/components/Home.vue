@@ -4,7 +4,7 @@
     <el-header>
       <div>
         <img id="avatar" src="../assets/avatar.png" alt="avatar头像" />
-        <span>后台管理平台</span>
+        <span class="homePic" @click="goHome">后台管理平台</span>
       </div>
       <el-button type="info" @click="logout">退出</el-button>
     </el-header>
@@ -70,6 +70,9 @@ export default {
     this.getMenuList()
   },
   methods: {
+    goHome(){
+      this.$router.push({path: '/home'})
+    },
     logout() {
       sessionStorage.clear('token')
       this.$router.push('/login')
@@ -143,6 +146,9 @@ export default {
   line-height: 24px;
   text-align: center;
   color: #fff;
+  cursor: pointer;
+}
+.homePic{
   cursor: pointer;
 }
 </style>
