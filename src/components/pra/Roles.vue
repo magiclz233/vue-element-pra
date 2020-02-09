@@ -1,15 +1,11 @@
 <template>
-    <div>
-        权限页面
-    </div>
+  <div>
+    权限页面
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {}
 </script>
 
-<style lang="less" scoped>
-
-</style>
+<style lang="less" scoped></style>

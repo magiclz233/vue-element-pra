@@ -43,46 +43,46 @@ export default {
   data() {
     return {
       loginForm: {
-        username: "",
-        password: ""
+        username: '',
+        password: ''
       },
       rules: {
         username: [
-          { required: true, message: "请输入账号", trigger: "blur" },
-          { min: 2, max: 10, message: "长度在 2 到 10 个字符", trigger: "blur" }
+          { required: true, message: '请输入账号', trigger: 'blur' },
+          { min: 2, max: 10, message: '长度在 2 到 10 个字符', trigger: 'blur' }
         ],
         password: [
-          { required: true, message: "请输入密码", trigger: "blur" },
-          { min: 5, max: 16, message: "长度在 6 到 6 个字符", trigger: "blur" }
+          { required: true, message: '请输入密码', trigger: 'blur' },
+          { min: 5, max: 16, message: '长度在 6 到 6 个字符', trigger: 'blur' }
         ]
       }
-    };
+    }
   },
   methods: {
     resetLoginForm() {
-      this.$refs.loginFormRef.resetFields();
+      this.$refs.loginFormRef.resetFields()
     },
     login() {
       this.$refs.loginFormRef.validate(valid => {
-        if (!valid) return;
+        if (!valid) return
         this.$axios
-          .post("login", this.loginForm)
+          .post('login', this.loginForm)
           .then(res => {
             if (res.data.meta.status !== 200) {
-              return this.$message.error("登陆失败!");
+              return this.$message.error('登陆失败!')
             }
-            this.$message.success("登陆成功!");
+            this.$message.success('登陆成功!')
             // console.log(res.data.data.token);
-            window.sessionStorage.setItem("token", res.data.data.token);
-            this.$router.push({ path: "/home" });
+            window.sessionStorage.setItem('token', res.data.data.token)
+            this.$router.push({ path: '/home' })
           })
           .catch(err => {
-            this.$message.error(err);
-          });
-      });
+            this.$message.error(err)
+          })
+      })
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>

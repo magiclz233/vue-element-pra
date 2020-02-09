@@ -64,36 +64,36 @@ export default {
     return {
       menuList: [],
       toggleColl: false
-    };
+    }
   },
   created() {
-    this.getMenuList();
+    this.getMenuList()
   },
   methods: {
     logout() {
-      sessionStorage.clear("token");
-      this.$router.push("/login");
+      sessionStorage.clear('token')
+      this.$router.push('/login')
     },
     getMenuList() {
       this.$axios
-        .get("menus")
+        .get('menus')
         .then(res => {
           if (res.data.meta.status !== 200)
-            return this.$message.error(res.data.meta.msg);
-          this.menuList = res.data.data;
+            return this.$message.error(res.data.meta.msg)
+          this.menuList = res.data.data
           // res.data.data
         })
-                       
+
         .catch(err => {
-          this.$message.error(err);
-        });
+          this.$message.error(err)
+        })
     },
     // 折叠菜单
     toggleCollapse() {
-      this.toggleColl = !this.toggleColl;
+      this.toggleColl = !this.toggleColl
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>

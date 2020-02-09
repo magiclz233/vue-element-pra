@@ -118,46 +118,46 @@ export default {
     return {
       total: 0,
       userList: [],
-      inputData: "",
+      inputData: '',
       queryInfo: {
-        query: "",
+        query: '',
         pagenum: 1,
         pagesize: 5
       },
       stateValue: false
-    };
+    }
   },
   created() {
-    this.getUserList();
+    this.getUserList()
   },
   methods: {
     getUserList() {
       this.$axios
-        .get("users", {
+        .get('users', {
           params: this.queryInfo
         })
         .then(res => {
           if (res.data.meta.status !== 200)
-            return this.$message.error(res.data.meta.msg);
-          this.userList = res.data.data.users;
-          this.total = res.data.data.total;
+            return this.$message.error(res.data.meta.msg)
+          this.userList = res.data.data.users
+          this.total = res.data.data.total
         })
         .catch(err => {
-          this.$message.error(err);
-        });
+          this.$message.error(err)
+        })
     },
     // 每页显示个数
-    handleSizeChange(pageSize){
-      this.queryInfo.pagesize = pageSize;
-      this.getUserList();
+    handleSizeChange(pageSize) {
+      this.queryInfo.pagesize = pageSize
+      this.getUserList()
     },
     // 显示第几页
-    handleCurrentChange(pageNum){
-      this.queryInfo.pagenum = pageNum;
-      this.getUserList();
+    handleCurrentChange(pageNum) {
+      this.queryInfo.pagenum = pageNum
+      this.getUserList()
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>
