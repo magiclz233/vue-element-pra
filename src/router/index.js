@@ -11,12 +11,7 @@ import Goods from '../components/pra/Goods.vue'
 import Params from '../components/pra/Params.vue'
 import Reports from '../components/pra/Reports.vue'
 import Orders from '../components/pra/Orders.vue'
-
-
-
-
-
-
+import GoodsAdd from '../components/pra/GoodsAdd.vue'
 
 Vue.use(VueRouter)
 
@@ -58,26 +53,34 @@ const routes = [
       {
         path: '/roles',
         component: Roles
-      },{
+      },
+      {
         path: '/rights',
         component: Rights
-      },{
+      },
+      {
         path: '/goods',
         component: Goods
-      },{
+      },
+      {
         path: '/params',
         component: Params
-      },{
+      },
+      {
         path: '/categories',
         component: Categories
-      }
-      ,{
+      },
+      {
         path: '/orders',
         component: Orders
-      }
-      ,{
+      },
+      {
         path: '/reports',
         component: Reports
+      },
+      {
+        path: '/goods/add',
+        component: GoodsAdd
       }
     ]
   },
