@@ -1,5 +1,11 @@
 # vuepra
 
+一个学习 Vue 过程中使用 elementUI,axios,vue router 等编写的后台管理平台
+
+[预览地址](http://49.233.129.28:8080/)
+
+自己还在初步学习,互勉!
+
 ## Project setup
 
 ```
