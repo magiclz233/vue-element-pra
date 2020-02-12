@@ -53,7 +53,7 @@
             ></el-table-column>
             <el-table-column prop="add_time" label="创建时间"></el-table-column>
             <el-table-column label="操作">
-              <template>
+              <template slot-scope="sc">
                 <el-tooltip
                   effect="dark"
                   content="编辑"
@@ -64,6 +64,7 @@
                     type="primary"
                     icon="el-icon-edit"
                     size="mini"
+                    @click="editBtn(sc.row.goods_id)"
                   ></el-button>
                 </el-tooltip>
                 <el-tooltip
@@ -76,6 +77,7 @@
                     type="danger"
                     icon="el-icon-delete"
                     size="mini"
+                    @click="deleteBtn(sc.row.goods_id)"
                   ></el-button>
                 </el-tooltip>
               </template>
@@ -144,6 +146,33 @@ export default {
     handleCurrentChange(pageNum) {
       this.goodsParams.pagenum = pageNum
       this.getGoodsList()
+    },
+    deleteBtn(id) {
+      this.$confirm('此操作将永久删除该商品, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      })
+        .then(() => {
+          this.$axios
+            .delete('goods/' + id)
+            .then(res => {
+              if (res.data.meta.status !== 200) {
+                return this.$message.error(res.data.meta.msg)
+              }
+              this.$message.success('删除商品成功!')
+              this.getGoodsList()
+            })
+            .catch(err => {
+              this.$message.error(err)
+            })
+        })
+        .catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          })
+        })
     }
   }
 }
